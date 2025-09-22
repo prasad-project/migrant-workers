@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Prasad Palei",
+    "phone": "7848881646",
+    "age": 32,
+    "gender": "Male",
+    "bloodGroup": "O+",
+    "location": "Ganjam, Odisha",
+    "healthId": "91-2847-5639-1234",
+    "healthHistory": {
+      "vaccinations": ["COVID-19 (2 doses)", "Hepatitis B (1st dose)"],
+      "allergies": "None",
+      "chronicConditions": "Hypertension",
+      "lastCheckup": "2024-11-12",
+      "medications": ["Amlodipine"]
+    }
+  },
+  {
+    "name": "Dibya Biswoy",
+    "phone": "9827243294",
+    "age": 28,
+    "gender": "Male",
+    "bloodGroup": "O+",
+    "location": "Delhi, NCR",
+    "healthId": "91-2847-5639-1235",
+    "healthHistory": {
+      "vaccinations": ["COVID-19 (2 doses)"],
+      "allergies": "Dust allergy",
+      "chronicConditions": "None",
+      "lastCheckup": "2025-02-10",
+      "medications": []
+    }
+  },
+  {
+    "name": "Venush Patel",
+    "phone": "7077778817",
+    "age": 36,
+    "gender": "Male",
+    "bloodGroup": "A+",
+    "location": "Ganjam, Odisha",
+    "healthId": "91-2847-5639-1236",
+    "healthHistory": {
+      "vaccinations": ["COVID-19 (2 doses)", "Tetanus Booster"],
+      "allergies": "Penicillin",
+      "chronicConditions": "Diabetes (Type 2)",
+      "lastCheckup": "2024-12-01",
+      "medications": ["Metformin"]
+    }
+  },
+  {
+    "name": "Binod Biswal",
+    "phone": "9090909090",
+    "age": 40,
+    "gender": "Male",
+    "bloodGroup": "AB+",
+    "location": "Gajapati, Odisha",
+    "healthId": "6371620 004",
+    "healthHistory": {
+      "vaccinations": ["COVID-19 (2 doses)", "Hepatitis A"],
+      "allergies": "Seafood",
+      "chronicConditions": "Asthma",
+      "lastCheckup": "2025-01-05",
+      "medications": ["Inhaler"]
+    }
+  },
+  {
+    "name": "Brijesh Singh",
+    "phone": "8984926693",
+    "age": 30,
+    "gender": "Male",
+    "bloodGroup": "B-",
+    "location": "Cuttck, Odisha",
+    "healthId": "91-2847-5639-1238",
+    "healthHistory": {
+      "vaccinations": ["COVID-19 (2 doses)", "Typhoid"],
+      "allergies": "None",
+      "chronicConditions": "None",
+      "lastCheckup": "2025-03-01",
+      "medications": []
+    }
+  }
+]
