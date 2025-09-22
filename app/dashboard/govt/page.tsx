@@ -170,9 +170,10 @@ export default function GovernmentDashboard() {
               <CardContent>
                 <div className="relative">
                   <img
-                    src="/images/kerala-map.png"
+                    src="/kerala-show-map.png"
                     alt="Kerala Health Status Map"
                     className="w-full h-96 object-contain"
+                    data-slot="image"
                   />
                 </div>
               </CardContent>
