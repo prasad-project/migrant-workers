@@ -9,27 +9,28 @@ import { Label } from "@/components/ui/label"
 import { Stethoscope, Mail, Lock } from "lucide-react"
 
 export default function DoctorLogin() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
-  const router = useRouter()
+   const [doctorId, setDoctorId] = useState("")
+   const [password, setPassword] = useState("")
+   const [error, setError] = useState("")
+   const [isLoading, setIsLoading] = useState(false)
+   const router = useRouter()
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-    setError("")
+   const handleLogin = async (e: React.FormEvent) => {
+     e.preventDefault()
+     setIsLoading(true)
+     setError("")
 
-    // Check credentials
-    if (email === "susantkumar@gov.in" && password === "susant") {
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      router.push("/dashboard/doctor")
-    } else {
-      setError("Invalid email or password")
-      setIsLoading(false)
-    }
-  }
+     // Check credentials
+     const validDoctorIds = ["SILU1789", "Prasad9090", "DIBYA293", "Binod0978", "BRIJESH3457"]
+     if (validDoctorIds.includes(doctorId) && password === "12345") {
+       // Simulate API call delay
+       await new Promise(resolve => setTimeout(resolve, 1000))
+       router.push("/dashboard/doctor")
+     } else {
+       setError("Invalid Doctor ID or password")
+       setIsLoading(false)
+     }
+   }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex items-center justify-center p-4">
@@ -48,17 +49,17 @@ export default function DoctorLogin() {
         <CardContent>
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <Label htmlFor="email" className="text-sm font-medium">
-                Email Address
+              <Label htmlFor="doctorId" className="text-sm font-medium">
+                Doctor ID
               </Label>
               <div className="relative mt-1">
                 <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                 <Input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  id="doctorId"
+                  type="text"
+                  placeholder="Enter your Doctor ID"
+                  value={doctorId}
+                  onChange={(e) => setDoctorId(e.target.value)}
                   className="pl-10"
                   required
                 />
@@ -100,8 +101,8 @@ export default function DoctorLogin() {
 
           <div className="mt-6 p-4 bg-blue-50 rounded-lg">
             <h3 className="text-sm font-medium text-blue-900 mb-2">Demo Credentials:</h3>
-            <p className="text-xs text-blue-700">Email: susantkumar@gov.in</p>
-            <p className="text-xs text-blue-700">Password: susant</p>
+            <p className="text-xs text-blue-700">Doctor ID: SILU1789</p>
+            <p className="text-xs text-blue-700">Password: 12345</p>
           </div>
         </CardContent>
       </Card>

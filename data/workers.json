@@ -2,7 +2,7 @@
   {
     "name": "Prasad Palei",
     "phone": "7848881646",
-    "age": 32,
+    "age": 20,
     "gender": "Male",
     "bloodGroup": "O+",
     "location": "Ganjam, Odisha",
@@ -21,7 +21,7 @@
     "age": 28,
     "gender": "Male",
     "bloodGroup": "O+",
-    "location": "Delhi, NCR",
+    "location": "Ganja, Gajapati, Odisha",
     "healthId": "91-2847-5639-1235",
     "healthHistory": {
       "vaccinations": ["COVID-19 (2 doses)"],
@@ -49,7 +49,7 @@
   },
   {
     "name": "Binod Biswal",
-    "phone": "9090909090",
+    "phone": "6371620004",
     "age": 40,
     "gender": "Male",
     "bloodGroup": "AB+",
@@ -66,7 +66,7 @@
   {
     "name": "Brijesh Singh",
     "phone": "8984926693",
-    "age": 30,
+    "age": 23,
     "gender": "Male",
     "bloodGroup": "B-",
     "location": "Cuttck, Odisha",

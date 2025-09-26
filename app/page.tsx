@@ -42,23 +42,49 @@ export default function HealthPortal() {
   const [activeUserType, setActiveUserType] = useState<"worker" | "doctor" | "govt">("worker")
   const [authMethod, setAuthMethod] = useState<"password" | "otp">("password")
   const [workerPhone, setWorkerPhone] = useState("")
+  const [workerPassword, setWorkerPassword] = useState("")
+  const [doctorId, setDoctorId] = useState("")
+  const [doctorPassword, setDoctorPassword] = useState("")
+  const [govtEmail, setGovtEmail] = useState("")
+  const [govtPassword, setGovtPassword] = useState("")
   const [error, setError] = useState("")
   const router = useRouter()
 
   const handleLogin = () => {
     setError("")
     if (activeUserType === "worker") {
-      const worker = workers.find(w => w.phone === workerPhone)
-      if (worker) {
-        localStorage.setItem('worker', JSON.stringify(worker))
-        router.push("/dashboard/worker")
+      if (authMethod === "password") {
+        const worker = workers.find(w => w.phone === workerPhone)
+        if (worker && workerPassword === "12345") {
+          localStorage.setItem('worker', JSON.stringify(worker))
+          router.push("/dashboard/worker")
+        } else {
+          setError("Invalid phone number or password.")
+        }
       } else {
-        setError("Worker not found. Please check your phone number.")
+        // OTP logic not implemented, for now just redirect if worker exists
+        const worker = workers.find(w => w.phone === workerPhone)
+        if (worker) {
+          localStorage.setItem('worker', JSON.stringify(worker))
+          router.push("/dashboard/worker")
+        } else {
+          setError("Worker not found. Please check your phone number.")
+        }
+      }
+    } else if (activeUserType === "doctor") {
+      const validDoctorIds = ["SILU1789", "Prasad9090", "DIBYA293", "Binod0978", "BRIJESH3457"]
+      if (validDoctorIds.includes(doctorId) && doctorPassword === "12345") {
+        router.push("/dashboard/doctor")
+      } else {
+        setError("Invalid Doctor ID or password.")
       }
     } else if (activeUserType === "govt") {
-      router.push("/dashboard/govt")
-    } else if (activeUserType === "doctor") {
-      router.push("/dashboard/doctor") // Placeholder for future implementation
+      const validGovtEmails = ["prasad18@kerala.gov.in", "dibya345@kerala.gov.in", "binod14@kerala.gov.in", "brijesh56@kerala.gov.in"]
+      if (validGovtEmails.includes(govtEmail) && govtPassword === "12345") {
+        router.push("/dashboard/govt")
+      } else {
+        setError("Invalid email or password.")
+      }
     }
   }
 
@@ -267,7 +293,7 @@ export default function HealthPortal() {
                       <Label htmlFor="workerPassword" className="text-sm font-medium">
                         Password <span className="text-red-500">*</span>
                       </Label>
-                      <Input id="workerPassword" type="password" placeholder="Enter your password" className="mt-1" />
+                      <Input id="workerPassword" type="password" placeholder="Enter your password" className="mt-1" value={workerPassword} onChange={(e) => setWorkerPassword(e.target.value)} />
                     </div>
                   )}
                 </>
@@ -279,14 +305,14 @@ export default function HealthPortal() {
                     <Label htmlFor="doctorId" className="text-sm font-medium">
                       Doctor ID <span className="text-red-500">*</span>
                     </Label>
-                    <Input id="doctorId" placeholder="Enter your Doctor ID" className="mt-1" />
+                    <Input id="doctorId" placeholder="Enter your Doctor ID" className="mt-1" value={doctorId} onChange={(e) => setDoctorId(e.target.value)} />
                   </div>
 
                   <div>
                     <Label htmlFor="doctorPassword" className="text-sm font-medium">
                       Password <span className="text-red-500">*</span>
                     </Label>
-                    <Input id="doctorPassword" type="password" placeholder="Enter your password" className="mt-1" />
+                    <Input id="doctorPassword" type="password" placeholder="Enter your password" className="mt-1" value={doctorPassword} onChange={(e) => setDoctorPassword(e.target.value)} />
                   </div>
                 </>
               )}
@@ -297,14 +323,14 @@ export default function HealthPortal() {
                     <Label htmlFor="govtEmail" className="text-sm font-medium">
                       Official Government Email <span className="text-red-500">*</span>
                     </Label>
-                    <Input id="govtEmail" type="email" placeholder="yourname@kerala.gov.in" className="mt-1" />
+                    <Input id="govtEmail" type="email" placeholder="yourname@kerala.gov.in" className="mt-1" value={govtEmail} onChange={(e) => setGovtEmail(e.target.value)} />
                   </div>
 
                   <div>
                     <Label htmlFor="govtPassword" className="text-sm font-medium">
                       Password <span className="text-red-500">*</span>
                     </Label>
-                    <Input id="govtPassword" type="password" placeholder="Enter your password" className="mt-1" />
+                    <Input id="govtPassword" type="password" placeholder="Enter your password" className="mt-1" value={govtPassword} onChange={(e) => setGovtPassword(e.target.value)} />
                   </div>
                 </>
               )}
