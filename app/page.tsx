@@ -104,14 +104,14 @@ export default function HealthPortal() {
               alt="Migrant Worker Digital Health Record"
               className="h-12 w-12"
             />
-            <div>
-              <h1 className="text-lg font-semibold text-gray-900">Health Portal for Migrant Workers</h1>
-              <p className="text-sm text-gray-600">प्रवासी श्रमिकों के लिए स्वास्थ्य पोर्टल</p>
+            <div className="min-w-0 flex-1">
+              <h1 className="text-lg font-semibold text-gray-900 truncate">Health Portal for Migrant Workers</h1>
+              <p className="text-sm text-gray-600 hidden sm:block">प्रवासी श्रमिकों के लिए स्वास्थ्य पोर्टल</p>
             </div>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <Select defaultValue="english">
-              <SelectTrigger className="w-24">
+              <SelectTrigger className="w-20 sm:w-24">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -119,13 +119,14 @@ export default function HealthPortal() {
                 <SelectItem value="hindi">हिंदी</SelectItem>
               </SelectContent>
             </Select>
-            <Button variant="outline" size="sm">
+            <Button variant="outline" size="sm" className="hidden sm:flex">
               <HelpCircle className="h-4 w-4 mr-1" />
               Help
             </Button>
-            <Button className="bg-red-600 hover:bg-red-700 text-white">
+            <Button className="bg-red-600 hover:bg-red-700 text-white text-xs sm:text-sm px-2 sm:px-4">
               <Phone className="h-4 w-4 mr-1" />
-              Emergency: 102
+              <span className="hidden sm:inline">Emergency: 102</span>
+              <span className="sm:hidden">102</span>
             </Button>
           </div>
         </div>
@@ -179,22 +180,22 @@ export default function HealthPortal() {
 
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-8 items-center relative z-10">
           <div>
-            <h2 className="text-4xl font-bold text-orange-500 mb-2">डिजिटल स्वास्थ्य पहचान</h2>
-            <div className="text-4xl font-bold text-black mb-4">
-              Digital Health Identity - <span className="bg-green-600 px-3 py-1 rounded text-white">Portable</span>
-              <br />& <span className="bg-green-600 px-3 py-1 rounded text-white">Secure</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-orange-500 mb-2">डिजिटल स्वास्थ्य पहचान</h2>
+            <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-4">
+              Digital Health Identity - <span className="bg-green-600 px-2 sm:px-3 py-1 rounded text-white text-sm sm:text-base">Portable</span>
+              <br className="hidden sm:block" />& <span className="bg-green-600 px-2 sm:px-3 py-1 rounded text-white text-sm sm:text-base">Secure</span>
             </div>
-            <p className="text-lg text-gray-700 mb-8">
+            <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8">
               Digital health identity for every migrant worker in India. Secure, portable, and accessible across all
               states and languages.
             </p>
-            <div className="flex gap-4 mb-8">
-              <Button className="bg-blue-800 hover:bg-blue-900 text-white px-6 py-3">
-                <Download className="h-5 w-5 mr-2" />
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
+              <Button className="bg-blue-800 hover:bg-blue-900 text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base w-full sm:w-auto">
+                <Download className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                 Download Health Report
               </Button>
-              <Button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3">
-                <Gift className="h-5 w-5 mr-2" />
+              <Button className="bg-green-600 hover:bg-green-700 text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base w-full sm:w-auto">
+                <Gift className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                 Check Rewards / Benefits
               </Button>
             </div>
@@ -215,31 +216,32 @@ export default function HealthPortal() {
           </div>
 
           {/* Login Form */}
-          <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-lg p-6 border border-white/20">
+          <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6 border border-white/20">
             <div className="flex items-center justify-center mb-4">
-              <div className="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium">
-                <Shield className="h-4 w-4 inline mr-1" />
-                Government Secured & Verified
+              <div className="bg-green-600 text-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
+                <Shield className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
+                <span className="hidden sm:inline">Government Secured & Verified</span>
+                <span className="sm:hidden">Verified</span>
               </div>
             </div>
 
-            <div className="flex mb-6">
+            <div className="flex flex-col sm:flex-row mb-4 sm:mb-6 gap-1 sm:gap-0">
               <Button
-                className={`flex-1 rounded-r-none ${activeUserType === "worker" ? "bg-blue-800 text-white" : "bg-transparent border border-gray-300 text-gray-700"}`}
+                className={`flex-1 rounded-b-none sm:rounded-r-none sm:rounded-b-none ${activeUserType === "worker" ? "bg-blue-800 text-white" : "bg-transparent border border-gray-300 text-gray-700"}`}
                 onClick={() => setActiveUserType("worker")}
               >
                 <User className="h-4 w-4 mr-1" />
                 Worker
               </Button>
               <Button
-                className={`flex-1 rounded-none border-l-0 ${activeUserType === "doctor" ? "bg-blue-800 text-white" : "bg-transparent border border-gray-300 text-gray-700"}`}
+                className={`flex-1 rounded-none border-l-0 sm:border-l border-t-0 sm:border-t ${activeUserType === "doctor" ? "bg-blue-800 text-white" : "bg-transparent border border-gray-300 text-gray-700"}`}
                 onClick={() => setActiveUserType("doctor")}
               >
                 <Stethoscope className="h-4 w-4 mr-1" />
                 Doctor
               </Button>
               <Button
-                className={`flex-1 rounded-l-none border-l-0 ${activeUserType === "govt" ? "bg-blue-800 text-white" : "bg-transparent border border-gray-300 text-gray-700"}`}
+                className={`flex-1 rounded-t-none sm:rounded-l-none sm:rounded-t-none border-l-0 border-t-0 ${activeUserType === "govt" ? "bg-blue-800 text-white" : "bg-transparent border border-gray-300 text-gray-700"}`}
                 onClick={() => setActiveUserType("govt")}
               >
                 <Building className="h-4 w-4 mr-1" />
@@ -360,21 +362,22 @@ export default function HealthPortal() {
                 </div>
               </div>
 
-              <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-3" onClick={handleLogin}>
+              <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-2 sm:py-3 text-sm sm:text-base" onClick={handleLogin}>
                 <Shield className="h-4 w-4 mr-2" />
-                सुरक्षित प्रवेश / Secure Login
+                <span className="hidden sm:inline">सुरक्षित प्रवेश / Secure Login</span>
+                <span className="sm:hidden">Login</span>
               </Button>
 
-              {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+              {error && <p className="text-red-500 text-xs sm:text-sm mt-2">{error}</p>}
 
-              <div className="text-center text-sm">
+              <div className="text-center text-xs sm:text-sm">
                 Don't have an account?{" "}
                 <a href="#" className="text-blue-600 hover:underline">
                   Register Now
                 </a>
               </div>
 
-              <div className="text-xs text-gray-500 text-center">
+              <div className="text-xs text-gray-500 text-center leading-tight">
                 By logging in, you agree to our{" "}
                 <a href="#" className="text-blue-600">
                   Terms of Service
@@ -399,37 +402,37 @@ export default function HealthPortal() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-6 mb-16">
-            <Card className="bg-blue-50 border-blue-200 text-center p-6">
-              <div className="bg-blue-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CreditCard className="h-8 w-8 text-white" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
+            <Card className="bg-blue-50 border-blue-200 text-center p-4 sm:p-6">
+              <div className="bg-blue-800 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <CreditCard className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Digital Health ID</h3>
-              <p className="text-sm text-gray-600">Unique health identifier for seamless access</p>
+              <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Digital Health ID</h3>
+              <p className="text-xs sm:text-sm text-gray-600">Unique health identifier for seamless access</p>
             </Card>
 
-            <Card className="bg-green-50 border-green-200 text-center p-6">
-              <div className="bg-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Building2 className="h-8 w-8 text-white" />
+            <Card className="bg-green-50 border-green-200 text-center p-4 sm:p-6">
+              <div className="bg-green-600 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <Building2 className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Hospital Network</h3>
-              <p className="text-sm text-gray-600">Access to 5000+ empaneled hospitals</p>
+              <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Hospital Network</h3>
+              <p className="text-xs sm:text-sm text-gray-600">Access to 5000+ empaneled hospitals</p>
             </Card>
 
-            <Card className="bg-purple-50 border-purple-200 text-center p-6">
-              <div className="bg-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Pill className="h-8 w-8 text-white" />
+            <Card className="bg-purple-50 border-purple-200 text-center p-4 sm:p-6">
+              <div className="bg-purple-600 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <Pill className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Medicine Delivery</h3>
-              <p className="text-sm text-gray-600">Free home delivery of prescribed medicines</p>
+              <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Medicine Delivery</h3>
+              <p className="text-xs sm:text-sm text-gray-600">Free home delivery of prescribed medicines</p>
             </Card>
 
-            <Card className="bg-orange-50 border-orange-200 text-center p-6">
-              <div className="bg-orange-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <PhoneCall className="h-8 w-8 text-white" />
+            <Card className="bg-orange-50 border-orange-200 text-center p-4 sm:p-6">
+              <div className="bg-orange-600 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <PhoneCall className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">24/7 Helpline</h3>
-              <p className="text-sm text-gray-600">Round-the-clock medical assistance</p>
+              <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">24/7 Helpline</h3>
+              <p className="text-xs sm:text-sm text-gray-600">Round-the-clock medical assistance</p>
             </Card>
           </div>
 
@@ -855,9 +858,9 @@ export default function HealthPortal() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-8 sm:py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div>
               <h4 className="font-semibold mb-4">Health Portal</h4>
               <p className="text-sm text-gray-400 mb-4">

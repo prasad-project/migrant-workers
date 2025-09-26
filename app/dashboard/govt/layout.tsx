@@ -62,7 +62,7 @@ export default function GovtDashboardLayout({
   return (
     <div className="flex h-screen bg-gray-50">
       {/* Left Sidebar Navigation */}
-      <div className="w-64 bg-white border-r border-gray-200 p-4 flex flex-col">
+      <div className="govt-sidebar hidden md:flex w-64 bg-white border-r border-gray-200 p-4 flex-col">
         {/* Logo Section */}
         <div className="flex items-center gap-3 mb-8">
           <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">
@@ -130,7 +130,7 @@ export default function GovtDashboardLayout({
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col">{children}</div>
+      <div className="govt-main-content flex-1 flex flex-col">{children}</div>
     </div>
   )
 }
