@@ -44,23 +44,11 @@ export default function GovtDashboardLayout({
       path: "/dashboard/govt/health-records",
     },
     {
-      id: "resource-planning",
-      label: "Resource Planning",
-      icon: MapPin,
-      path: "/dashboard/govt/resource-planning",
-    },
-    {
       id: "emergency-response",
       label: "Emergency Response",
       icon: AlertTriangle,
       path: "/dashboard/govt/emergency-response",
       badge: { text: "LIVE", color: "bg-red-600 text-white text-xs" },
-    },
-    {
-      id: "advanced-analytics",
-      label: "Advanced Analytics",
-      icon: TrendingUp,
-      path: "/dashboard/govt/advanced-analytics",
     },
   ]
 

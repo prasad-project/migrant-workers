@@ -148,7 +148,7 @@ export default function WorkerDashboard() {
         {/* Health Overview Cards */}
         <div>
           <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Health Overview</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <Card className="bg-gradient-to-br from-pink-400 to-pink-600 text-white border-0 shadow-lg">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between mb-4">
@@ -162,18 +162,6 @@ export default function WorkerDashboard() {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-cyan-400 to-blue-600 text-white border-0 shadow-lg">
-              <CardContent className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <Pill className="h-8 w-8" />
-                  <FileText className="h-6 w-6 opacity-70" />
-                </div>
-                <h3 className="font-semibold mb-2">Current Medicine</h3>
-                <p className="text-sm opacity-90 mb-1">Paracetamol 500mg</p>
-                <p className="text-xs opacity-80">2 times daily</p>
-                <p className="text-xs opacity-80">After meals - 7 days</p>
-              </CardContent>
-            </Card>
 
             <Card className="bg-gradient-to-br from-green-400 to-emerald-600 text-white border-0 shadow-lg">
               <CardContent className="p-6">
@@ -262,7 +250,7 @@ export default function WorkerDashboard() {
         {/* Quick Actions */}
         <div>
           <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Quick Actions</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             <Card className="hover:shadow-lg transition-shadow cursor-pointer bg-blue-50 border-blue-200">
               <CardContent className="p-6 text-center">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -290,14 +278,6 @@ export default function WorkerDashboard() {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer bg-yellow-50 border-yellow-200">
-              <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Pill className="h-6 w-6 text-yellow-600" />
-                </div>
-                <h3 className="font-medium text-sm">Medicine Reminder</h3>
-              </CardContent>
-            </Card>
 
             <Card className="hover:shadow-lg transition-shadow cursor-pointer bg-red-50 border-red-200">
               <CardContent className="p-6 text-center">

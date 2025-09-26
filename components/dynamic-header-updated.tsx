@@ -51,11 +51,6 @@ const featureConfig = {
      title: "Vaccinations",
      subtitle: "Government of India",
    },
-   "/medicines": {
-     icon: Pill,
-     title: "Medicines",
-     subtitle: "Government of India",
-   },
    "/alerts": {
      icon: AlertTriangle,
      title: "Disease Alerts",
