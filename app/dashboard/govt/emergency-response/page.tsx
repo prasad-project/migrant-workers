@@ -97,40 +97,7 @@ export default function EmergencyResponsePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header Section */}
-      <div className="bg-white border-b border-gray-200 px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-              <AlertTriangle className="h-6 w-6 text-red-600" />
-              Emergency Response
-            </h1>
-            <p className="text-gray-600 mt-1">Real-time outbreak alerts, hotspot monitoring, and action tracking</p>
-          </div>
-          <div className="flex items-center gap-3">
-            <Select defaultValue="today">
-              <SelectTrigger className="w-32">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="today">Today</SelectItem>
-                <SelectItem value="week">This Week</SelectItem>
-                <SelectItem value="month">This Month</SelectItem>
-              </SelectContent>
-            </Select>
-            <Button variant="outline" size="sm">
-              <FileText className="h-4 w-4 mr-1" />
-              PDF
-            </Button>
-            <Button variant="outline" size="sm">
-              <Download className="h-4 w-4 mr-1" />
-              Excel
-            </Button>
-          </div>
-        </div>
-      </div>
-
+    <>
       {/* Critical Alerts Panel */}
       <div className="bg-red-50 border-l-4 border-red-500 p-4 mx-6 mt-4 rounded-r-lg">
         <div className="flex items-center justify-between">
@@ -412,6 +379,6 @@ export default function EmergencyResponsePage() {
           </Card>
         </div>
       </div>
-    </div>
+    </>
   )
 }
