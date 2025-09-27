@@ -154,36 +154,7 @@ export default function HealthRecordsPage() {
   }
 
   return (
-    <div className="flex-1 flex flex-col">
-        {/* Header */}
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4 bg-white">
-          <Button variant="ghost" size="sm" onClick={() => handleNavigation("/dashboard/govt")} className="mr-2">
-            <ArrowLeft className="h-4 w-4" />
-          </Button>
-          <div className="flex items-center gap-3 flex-1">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
-              <FileText className="h-4 w-4" />
-            </div>
-            <div>
-              <h1 className="text-lg font-semibold text-gray-900">Migrant Health Registry</h1>
-              <p className="text-sm text-gray-600">Anonymous Health Records Management</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-              <Download className="h-4 w-4 mr-1" />
-              Export Records
-            </Button>
-            <Button size="sm" className="bg-green-600 hover:bg-green-700">
-              <FileText className="h-4 w-4 mr-1" />
-              Generate Report
-            </Button>
-            <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
-              <User className="h-4 w-4 text-gray-600" />
-            </div>
-          </div>
-        </header>
-
+    <>
         {/* Main Content */}
         <div className="flex-1 p-6 bg-gray-50 overflow-y-auto">
           {/* Stats Cards */}
@@ -418,6 +389,6 @@ export default function HealthRecordsPage() {
             </CardContent>
           </Card>
         </div>
-    </div>
+    </>
   )
 }
