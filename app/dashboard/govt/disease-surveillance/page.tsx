@@ -34,38 +34,6 @@ export default function DiseaseSurveillancePage() {
 
   return (
     <div className="flex-1 flex flex-col">
-        {/* Header */}
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4 bg-white">
-          <Menu className="h-5 w-5 text-gray-600 cursor-pointer" />
-          <div className="flex items-center gap-3 flex-1">
-            <div>
-              <h1 className="text-lg font-semibold text-gray-900">Disease Surveillance Dashboard</h1>
-              <p className="text-sm text-gray-600">Real-time monitoring and analysis of disease patterns</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span className="text-sm text-gray-600">System Online</span>
-            </div>
-            <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-              <Download className="h-4 w-4 mr-1" />
-              Export Report
-            </Button>
-            <div className="relative">
-              <Bell className="h-5 w-5 text-gray-600" />
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full flex items-center justify-center">
-                <span className="text-xs text-white font-bold">3</span>
-              </div>
-            </div>
-            <Settings className="h-5 w-5 text-gray-600 cursor-pointer" />
-            <Button variant="outline" size="sm" onClick={handleLogout}>
-              <LogOut className="h-4 w-4 mr-1" />
-              Logout
-            </Button>
-          </div>
-        </header>
-
         {/* Main Content */}
         <div className="flex-1 p-6 bg-gray-50 overflow-y-auto">
           {/* Active Health Alerts */}
