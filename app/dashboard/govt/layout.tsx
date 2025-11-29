@@ -1,21 +1,18 @@
 "use client"
 
-import type React from "react"
+import React, { useState } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Users, Activity, AlertTriangle, User, MapPin, TrendingUp, Settings, Download, Bell, LogOut, Menu, FileText } from "lucide-react"
 import { useRouter, usePathname } from "next/navigation"
 import { useState } from "react"
 
-export default function GovtDashboardLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function GovtDashboardLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter()
   const pathname = usePathname()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
+  // --- Configuration ---
   const menuItems = [
     {
       id: "population-overview",
@@ -30,7 +27,6 @@ export default function GovtDashboardLayout({
       icon: Activity,
       path: "/dashboard/govt/disease-surveillance",
       badge: { text: "12", color: "bg-red-500 text-white text-xs" },
-      badgeLabel: "Alerts",
     },
     {
       id: "high-risk-camps",
@@ -38,7 +34,6 @@ export default function GovtDashboardLayout({
       icon: AlertTriangle,
       path: "/dashboard/govt/high-risk-camps",
       badge: { text: "8", color: "bg-yellow-500 text-white text-xs" },
-      badgeLabel: "Flagged",
     },
     {
       id: "health-records",
@@ -92,10 +87,8 @@ export default function GovtDashboardLayout({
   }
 
   const isActive = (path: string) => {
-    if (path === "/dashboard/govt") {
-      return pathname === "/dashboard/govt"
-    }
-    return pathname.startsWith(path)
+    if (path === "/dashboard/govt") return pathname === "/dashboard/govt"
+    return pathname?.startsWith(path)
   }
 
   return (
@@ -108,64 +101,113 @@ export default function GovtDashboardLayout({
             KHM
           </div>
           <div>
-            <h1 className="text-lg font-semibold text-gray-900">Kerala Health</h1>
-            <h2 className="text-lg font-semibold text-gray-900">Monitor</h2>
-            <p className="text-sm text-gray-600">Migrant Health Dashboard</p>
+            <div className="text-sm font-bold text-gray-900 leading-none">Kerala Health</div>
+            <div className="text-xs text-gray-500 mt-1">Migrant Monitor</div>
           </div>
         </div>
 
         {/* Search */}
-        <div className="mb-6">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search dashboard..."
-              className="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-            />
-            <div className="absolute right-2 top-2 text-xs text-gray-400">⌘ K</div>
-          </div>
+        <div className="p-4 pb-2">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="w-full bg-gray-50 border border-gray-200 text-sm rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 focus:outline-none transition-all"
+          />
         </div>
 
-        {/* Navigation Items */}
-        <div className="space-y-2 flex-1">
-          {menuItems.map((item) => {
-            const Icon = item.icon
-            const active = isActive(item.path)
-            return (
-              <div
-                key={item.id}
-                className={`flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer transition-all duration-300 ease-in-out ${
-                  active
-                    ? "bg-green-100 text-green-800 shadow-sm"
-                    : "text-gray-700 hover:bg-green-50 hover:text-green-700"
-                }`}
-                onClick={() => router.push(item.path)}
-              >
-                <Icon className="h-4 w-4" />
-                <span className={`text-sm font-medium ${active ? "text-green-800" : ""}`}>{item.label}</span>
-                {item.badge && (
-                  <Badge className={`${item.badge.color} ml-auto text-xs`} aria-label={item.badgeLabel}>
-                    {item.badge.text}
-                  </Badge>
-                )}
-              </div>
-            )
-          })}
-        </div>
+        {/* Navigation - Scrollable inside sidebar if needed */}
+        <nav className="flex-1 overflow-y-auto px-4 py-4 space-y-1 custom-scrollbar">
+          {menuItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => router.push(item.path)}
+              className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                isActive(item.path) 
+                  ? "bg-green-50 text-green-700 shadow-sm ring-1 ring-green-100" 
+                  : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+              }`}
+            >
+              <item.icon className="h-4 w-4" />
+              <span className="flex-1 text-left">{item.label}</span>
+              {item.badge && <Badge className={`${item.badge.color} text-[10px] h-5 px-1.5`}>{item.badge.text}</Badge>}
+            </button>
+          ))}
+        </nav>
 
-        {/* Bottom Profile */}
-        <div className="mt-8 pt-4 border-t border-gray-200">
+        {/* User Profile Footer */}
+        <div className="p-4 border-t border-gray-100 bg-gray-50/50">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+            <div className="w-8 h-8 bg-white border border-gray-200 rounded-full flex items-center justify-center shadow-sm">
               <User className="h-4 w-4 text-gray-600" />
             </div>
-            <div>
-              <p className="text-sm font-medium text-gray-900">Dr. Rajesh Kumar</p>
-              <p className="text-xs text-gray-600">Health Officer</p>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-medium text-gray-900 truncate">Dr. Rajesh Kumar</p>
+              <p className="text-xs text-gray-500 truncate">Health Officer</p>
             </div>
-            <Settings className="h-4 w-4 text-gray-400 ml-auto cursor-pointer" />
+            <Settings className="h-4 w-4 text-gray-400 hover:text-gray-600 cursor-pointer" />
           </div>
         </div>
+      </aside>
+
+
+      {/* ----------------- MAIN CONTENT AREA ----------------- */}
+      <div className="flex-1 flex flex-col h-full overflow-hidden relative">
+        
+        {/* Mobile Header (Visible only on Mobile) */}
+        <header className="md:hidden h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 shrink-0 z-20">
+          <div className="flex items-center gap-3">
+            <button onClick={() => setDrawerOpen(true)} className="p-2 -ml-2 hover:bg-gray-100 rounded-md">
+              <Menu className="h-6 w-6 text-gray-700" />
+            </button>
+            <span className="font-semibold text-gray-900">Govt Dashboard</span>
+          </div>
+          <button className="p-2 hover:bg-gray-100 rounded-full relative">
+            <Bell className="h-5 w-5 text-gray-600" />
+            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+          </button>
+        </header>
+
+        {/* Desktop Header (Sticky at top of content area) */}
+        <header className="hidden md:flex h-16 bg-white/80 backdrop-blur-md border-b border-gray-200 items-center justify-between px-6 shrink-0 sticky top-0 z-10">
+          <div>
+            <h1 className="text-lg font-bold text-gray-900">{currentPageConfig.title}</h1>
+            <p className="text-xs text-gray-500">{currentPageConfig.subtitle}</p>
+          </div>
+          
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 px-3 py-1 bg-green-50 rounded-full border border-green-100">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              <span className="text-xs font-medium text-green-700">System Live</span>
+            </div>
+
+            <div className="h-6 w-px bg-gray-200 mx-1"></div>
+
+            {currentPageConfig.actions.map((action, index) => (
+              <button
+                key={index}
+                className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                  action.variant === 'outline' 
+                    ? 'border border-gray-200 text-gray-700 hover:bg-gray-50' 
+                    : 'bg-blue-600 text-white hover:bg-blue-700 shadow-sm'
+                }`}
+              >
+                <action.icon className="h-3.5 w-3.5" />
+                {action.label}
+              </button>
+            ))}
+          </div>
+        </header>
+
+        {/* Scrollable Page Content */}
+        {/* flex-1 makes it take remaining height, overflow-y-auto enables scrolling ONLY here */}
+        <main className="flex-1 overflow-y-auto bg-gray-50 p-4 md:p-6 scroll-smooth">
+          <div className="max-w-7xl mx-auto space-y-6">
+            {children}
+          </div>
+        </main>
       </div>
 
       {/* Main Content Area */}
