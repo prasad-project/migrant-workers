@@ -262,25 +262,21 @@ export default function HealthRecordsPage() {
   }
 
   return (
-    <div className="flex-1 flex flex-col">
-      {/* The dedicated <header> block has been removed, assuming a common 
-        Layout or Wrapper component will provide the main navigation/header.
-      */}
-      
-      {/* --- Main Content --- */}
-      <div className="flex-1 p-6 bg-gray-50 overflow-y-auto">
-        
-        {/* Stats Cards (Same as before) */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card className="border-l-4 border-l-blue-500">
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div>
-                  <p className="text-sm text-gray-600 mb-1">Total Registered</p>
-                  <p className="text-3xl font-bold text-gray-900">12,847</p>
-                  <div className="flex items-center gap-1 mt-1">
-                    <TrendingUp className="h-3 w-3 text-green-600" />
-                    <span className="text-xs text-green-600">+234 this month</span>
+    <>
+        {/* Main Content */}
+        <div className="flex-1 p-6 bg-gray-50 overflow-y-auto">
+          {/* Stats Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <Card className="border-l-4 border-l-blue-500">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <p className="text-sm text-gray-600 mb-1">Total Registered</p>
+                    <p className="text-3xl font-bold text-gray-900">12,847</p>
+                    <div className="flex items-center gap-1 mt-1">
+                      <TrendingUp className="h-3 w-3 text-green-600" />
+                      <span className="text-xs text-green-600">+234 this month</span>
+                    </div>
                   </div>
                 </div>
                 <Users className="h-8 w-8 text-blue-500" />
@@ -548,9 +544,35 @@ export default function HealthRecordsPage() {
                 Bulk Update
               </Button>
             </div>
-          </CardContent>
-        </Card>
-      </div>
-    </div>
+          </div>
+
+          {/* Quick Actions */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Quick Actions</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <Button className="flex items-center gap-2 h-12 bg-blue-600 hover:bg-blue-700">
+                  <UserPlus className="h-4 w-4" />
+                  Add New Patient
+                </Button>
+                <Button className="flex items-center gap-2 h-12 bg-green-600 hover:bg-green-700">
+                  <Calendar className="h-4 w-4" />
+                  Schedule Vaccination
+                </Button>
+                <Button className="flex items-center gap-2 h-12 bg-yellow-600 hover:bg-yellow-700">
+                  <Flag className="h-4 w-4" />
+                  Flag High Risk
+                </Button>
+                <Button className="flex items-center gap-2 h-12 bg-purple-600 hover:bg-purple-700">
+                  <FileText className="h-4 w-4" />
+                  Bulk Update
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+    </>
   )
 }

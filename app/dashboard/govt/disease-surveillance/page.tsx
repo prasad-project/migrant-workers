@@ -8,34 +8,20 @@ import { Input } from "@/components/ui/input"
 import {
   Users,
   Activity,
-  Download,
-  Settings,
-  Bell,
-  LogOut,
   TrendingUp,
   AlertTriangle,
   CheckCircle,
   MapPin,
-  User,
-  Menu,
   Filter,
   RotateCcw,
   X,
   Maximize2,
+  Download,
 } from "lucide-react"
-import { useRouter } from "next/navigation"
 
 export default function DiseaseSurveillancePage() {
-  const router = useRouter()
-
-  const handleLogout = () => {
-    router.push("/")
-  }
-
   return (
-    <div className="flex-1 flex flex-col">
-        {/* Main Content */}
-        <div className="flex-1 p-6 bg-gray-50 overflow-y-auto">
+    <>
           {/* Active Health Alerts */}
           <Card className="mb-6">
             <CardHeader className="flex flex-row items-center justify-between">
@@ -484,7 +470,6 @@ export default function DiseaseSurveillancePage() {
               </div>
             </CardContent>
           </Card>
-        </div>
-    </div>
+    </>
   )
 }

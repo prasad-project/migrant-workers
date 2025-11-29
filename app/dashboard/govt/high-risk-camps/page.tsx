@@ -22,63 +22,22 @@ import {
 
 export default function HighRiskCampsPage() {
   return (
-    <div className="space-y-8">
-      
-      {/* ------------------------------------------------------------- */}
-      {/* Status Overview (Kept for visual summary) */}
-      <div className="flex items-center gap-4 flex-wrap pb-4 border-b border-gray-200">
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-          <span className="text-sm font-bold text-red-700">High Risk: 7 camps</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-          <span className="text-sm font-medium text-yellow-700">Monitor: 12 camps</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-          <span className="text-sm text-gray-600">Safe: 31 camps</span>
-        </div>
-      </div>
-
-      {/* ------------------------------------------------------------- */}
-      {/* Stats Cards (Added hover/transition animations) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        
-        {/* Total Camps */}
-        <Card className="hover:shadow-md transition-all duration-300">
-          <CardContent className="p-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-600 mb-1">Total Camps</p>
-                <p className="text-3xl font-extrabold text-blue-600">50</p>
-                <div className="flex items-center gap-1 mt-1">
-                  <TrendingUp className="h-4 w-4 text-green-600" />
-                  <span className="text-xs text-green-600">2 new this month</span>
-                </div>
-              </div>
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                <MapPin className="h-6 w-6 text-blue-600" />
-              </div>
+    <>
+        {/* Main Content */}
+        <div className="flex-1 p-6 bg-gray-50 overflow-y-auto">
+          {/* Status Overview */}
+          <div className="flex items-center gap-6 mb-6">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+              <span className="text-sm font-medium">High Risk: 7 camps</span>
             </div>
-          </CardContent>
-        </Card>
-
-        {/* Total Population */}
-        <Card className="hover:shadow-md transition-all duration-300">
-          <CardContent className="p-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-600 mb-1">Total Population</p>
-                <p className="text-3xl font-extrabold text-green-600">18.4K</p>
-                <div className="flex items-center gap-1 mt-1">
-                  <TrendingUp className="h-4 w-4 text-green-600" />
-                  <span className="text-xs text-green-600">3.2% increase</span>
-                </div>
-              </div>
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                <Users className="h-6 w-6 text-green-600" />
-              </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+              <span className="text-sm font-medium">Monitor: 12 camps</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              <span className="text-sm font-medium">Safe: 31 camps</span>
             </div>
           </CardContent>
         </Card>
@@ -451,9 +410,77 @@ export default function HighRiskCampsPage() {
               </CardContent>
             </Card>
 
-          </div>
-        </CardContent>
-      </Card>
-    </div>
+                <Card className="border-l-4 border-l-yellow-500">
+                  <CardContent className="p-4">
+                    <div className="flex items-start justify-between mb-3">
+                      <h3 className="font-semibold text-gray-900">Thrissur Construction Hub</h3>
+                      <Badge className="bg-yellow-100 text-yellow-800">Monitor</Badge>
+                    </div>
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <Users className="h-4 w-4 text-gray-500" />
+                          <span className="text-sm">Population</span>
+                        </div>
+                        <span className="font-semibold">320</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <Activity className="h-4 w-4 text-orange-500" />
+                          <span className="text-sm">Dengue Cases</span>
+                        </div>
+                        <span className="font-semibold text-orange-600">8</span>
+                      </div>
+                      <div>
+                        <div className="flex justify-between text-sm mb-1">
+                          <span>Vaccination Rate</span>
+                          <span>72%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div className="bg-yellow-500 h-2 rounded-full" style={{ width: "72%" }}></div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-l-4 border-l-green-500">
+                  <CardContent className="p-4">
+                    <div className="flex items-start justify-between mb-3">
+                      <h3 className="font-semibold text-gray-900">Kollam Port Workers</h3>
+                      <Badge className="bg-green-100 text-green-800">Safe</Badge>
+                    </div>
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <Users className="h-4 w-4 text-gray-500" />
+                          <span className="text-sm">Population</span>
+                        </div>
+                        <span className="font-semibold">280</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4 text-green-500" />
+                          <span className="text-sm">Active Cases</span>
+                        </div>
+                        <span className="font-semibold text-green-600">0</span>
+                      </div>
+                      <div>
+                        <div className="flex justify-between text-sm mb-1">
+                          <span>Vaccination Rate</span>
+                          <span>95%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div className="bg-green-500 h-2 rounded-full" style={{ width: "95%" }}></div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+    </>
   )
 }

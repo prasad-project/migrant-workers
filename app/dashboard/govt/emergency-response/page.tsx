@@ -124,15 +124,10 @@ export default function EmergencyResponsePage() {
     setSelectedHotspot(prev => (prev && prev.id === hotspot.id ? null : hotspot))
   }, [])
 
-  const handleDiseaseFilterClick = useCallback((disease: string) => {
-    setFilterDisease(prev => (prev === disease ? null : disease))
-  }, [])
-
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      
-      {/* Critical Alert Banner (Kept for instant visual feedback) */}
-      <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-6 rounded-r-lg shadow-sm">
+    <>
+      {/* Critical Alerts Panel */}
+      <div className="bg-red-50 border-l-4 border-red-500 p-4 mx-6 mt-4 rounded-r-lg">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <AlertTriangle className="h-5 w-5 text-red-600" />
@@ -324,46 +319,6 @@ export default function EmergencyResponsePage() {
           </Card>
         </div>
       </div>
-
-      {/* --- Emergency Resources Panel (Full Width) --- */}
-      <div className="mt-6">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-xl flex items-center gap-2">
-                <Truck className="h-5 w-5 text-orange-600" /> Essential Resources Inventory
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-              {emergencyResourcesData.map((resource) => {
-                const Icon = resource.icon; // Get the Lucide icon component
-                const colorClass = resource.status === "good" ? "text-green-600" : resource.status === "medium" ? "text-yellow-600" : "text-red-600";
-                const bgClass = resource.status === "good" ? "bg-green-100" : resource.status === "medium" ? "bg-yellow-100" : "bg-red-100";
-
-                return (
-                  <div key={resource.name} className="p-4 border rounded-lg hover:shadow-md transition-shadow">
-                    <div className="flex items-center gap-4">
-                        <div className={`w-12 h-12 shrink-0 rounded-full flex items-center justify-center ${bgClass}`}>
-                            <Icon className={`h-6 w-6 ${colorClass}`} />
-                        </div>
-                        <div className="flex-1">
-                            <h4 className="font-medium text-lg text-gray-900">{resource.name}</h4>
-                            <p className="text-2xl font-bold text-gray-900">{resource.available}</p>
-                            <p className="text-xs text-gray-600">of {resource.total} available</p>
-                            {resource.status === "low" && (
-                              <Badge variant="destructive" className="text-xs mt-2 bg-red-600 hover:bg-red-700">
-                                Low Stock Alert
-                              </Badge>
-                            )}
-                        </div>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    </div>
+    </>
   )
 }
