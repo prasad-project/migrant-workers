@@ -34,15 +34,15 @@ export default function DoctorLogin() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md">
+      <Card className="w-full max-w-md mx-4">
         <CardHeader className="text-center">
           <div className="bg-teal-600 p-3 rounded-lg w-fit mx-auto mb-4">
             <Stethoscope className="h-8 w-8 text-white" />
           </div>
-          <CardTitle className="text-2xl font-bold text-gray-900">
+          <CardTitle className="text-xl sm:text-2xl font-bold text-gray-900">
             Doctor Login
           </CardTitle>
-          <p className="text-gray-600 mt-2">
+          <p className="text-gray-600 mt-2 text-sm sm:text-base">
             Migrant Worker Digital Health Portal
           </p>
         </CardHeader>

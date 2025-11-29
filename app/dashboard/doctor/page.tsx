@@ -152,26 +152,26 @@ export default function DoctorDashboard() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
       {/* Header */}
       <header className="bg-white border-b shadow-sm">
-        <div className="container mx-auto px-6 py-4">
+        <div className="container mx-auto px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
               <div className="bg-teal-600 p-2 rounded-lg">
-                <Stethoscope className="h-6 w-6 text-white" />
+                <Stethoscope className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
               </div>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900">Migrant Worker Digital Health</h1>
-                <p className="text-sm text-gray-600">Doctor Dashboard - Government of India</p>
+              <div className="min-w-0 flex-1">
+                <h1 className="text-lg sm:text-xl font-bold text-gray-900 truncate">Migrant Worker Digital Health</h1>
+                <p className="text-xs sm:text-sm text-gray-600 hidden sm:block">Doctor Dashboard - Government of India</p>
               </div>
             </div>
-            <div className="flex items-center gap-4">
-              <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
+            <div className="flex items-center gap-1 sm:gap-4">
+              <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200 text-xs px-2 py-1 hidden sm:flex">
                 <CheckCircle className="h-3 w-3 mr-1" />
                 Verified Doctor
               </Badge>
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" className="p-2">
                 <Bell className="h-4 w-4" />
               </Button>
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" className="p-2">
                 <Settings className="h-4 w-4" />
               </Button>
               <button
@@ -193,36 +193,40 @@ export default function DoctorDashboard() {
 
       <DoctorProfileSidebar isOpen={isProfileSidebarOpen} onClose={() => setIsProfileSidebarOpen(false)} />
 
-      <div className="container mx-auto px-6 py-6 space-y-6">
+      <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6 space-y-4 sm:space-y-6">
         {/* Patient Search & QR Scan */}
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Search className="h-5 w-5 text-blue-600" />
+            <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
+              <Search className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
               Patient Search & QR Scan
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Input
                 placeholder="Enter Patient ID, Aadhaar, or ABHA ID..."
                 className="flex-1"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
               />
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6">
-                <QrCode className="h-4 w-4 mr-2" />
-                Scan QR Code
-              </Button>
-              <Button
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6"
-                onClick={handleSearch}
-              >
-                <Search className="h-4 w-4 mr-2" />
-                Search Patient
-              </Button>
+              <div className="flex gap-2 sm:gap-4">
+                <Button className="bg-purple-600 hover:bg-purple-700 text-white px-3 sm:px-6 flex-1 sm:flex-none">
+                  <QrCode className="h-4 w-4 mr-2" />
+                  <span className="hidden sm:inline">Scan QR Code</span>
+                  <span className="sm:hidden">Scan</span>
+                </Button>
+                <Button
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-3 sm:px-6 flex-1 sm:flex-none"
+                  onClick={handleSearch}
+                >
+                  <Search className="h-4 w-4 mr-2" />
+                  <span className="hidden sm:inline">Search Patient</span>
+                  <span className="sm:hidden">Search</span>
+                </Button>
+              </div>
             </div>
-            <div className="flex gap-4 text-sm text-gray-600">
+            <div className="flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-gray-600">
               <span>Quick Search:</span>
               <button className="text-blue-600 hover:underline">Patient ID</button>
               <button className="text-blue-600 hover:underline">Aadhaar Number</button>

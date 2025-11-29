@@ -158,3 +158,136 @@
 .animate-marquee {
   animation: marquee 15s linear infinite;
 }
+
+/* Custom mobile responsiveness for worker dashboard */
+@media (max-width: 768px) {
+  /* Worker dashboard specific mobile fixes */
+  .worker-dashboard .profile-header {
+    padding: 1rem !important;
+  }
+
+  .worker-dashboard .health-cards {
+    gap: 0.75rem !important;
+  }
+
+  .worker-dashboard .health-cards .card-content {
+    padding: 1rem !important;
+  }
+
+  .worker-dashboard .announcements-grid {
+    gap: 0.75rem !important;
+  }
+
+  .worker-dashboard .announcements-grid .announcement-card {
+    padding: 0.75rem !important;
+  }
+
+  .worker-dashboard .quick-actions-grid {
+    gap: 0.75rem !important;
+  }
+
+  .worker-dashboard .quick-actions-grid .action-card {
+    padding: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small screens (phones) */
+  .worker-dashboard .profile-header {
+    padding: 0.75rem !important;
+  }
+
+  .worker-dashboard .profile-name {
+    font-size: 1.125rem !important;
+    line-height: 1.25rem !important;
+  }
+
+  .worker-dashboard .profile-details {
+    font-size: 0.75rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .worker-dashboard .health-cards .card-title {
+    font-size: 0.875rem !important;
+  }
+
+  .worker-dashboard .health-cards .card-content {
+    padding: 0.75rem !important;
+  }
+
+  .worker-dashboard .announcements-grid .announcement-card {
+    padding: 0.625rem !important;
+  }
+
+  .worker-dashboard .announcements-grid .announcement-title {
+    font-size: 0.875rem !important;
+  }
+
+  .worker-dashboard .quick-actions-grid .action-card {
+    padding: 0.75rem !important;
+  }
+
+  .worker-dashboard .quick-actions-grid .action-title {
+    font-size: 0.75rem !important;
+  }
+
+  /* Ensure buttons are properly sized on very small screens */
+  .worker-dashboard .btn-small {
+    padding: 0.375rem 0.75rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  /* Hide unnecessary elements on mobile */
+  .sidebar-footer {
+    display: none !important;
+  }
+
+  /* Improve spacing for mobile dashboards */
+  .dashboard-content {
+    padding: 1rem !important;
+  }
+
+  .dashboard-cards {
+    gap: 0.75rem !important;
+  }
+
+  .dashboard-card {
+    padding: 1rem !important;
+  }
+
+  /* Govt dashboard mobile fixes */
+  .govt-dashboard-mobile {
+    padding: 0.75rem !important;
+  }
+
+  .govt-dashboard-mobile .stats-grid {
+    gap: 0.75rem !important;
+  }
+
+  .govt-dashboard-mobile .stats-card {
+    padding: 0.75rem !important;
+  }
+
+  .govt-dashboard-mobile .map-section {
+    margin-bottom: 1rem !important;
+  }
+
+  .govt-dashboard-mobile .filter-section {
+    gap: 0.75rem !important;
+  }
+
+  .govt-dashboard-mobile .filter-card {
+    padding: 0.75rem !important;
+  }
+
+  /* Ensure sidebar is hidden on mobile for govt dashboard */
+  @media (max-width: 767px) {
+    .govt-sidebar {
+      display: none !important;
+    }
+
+    .govt-main-content {
+      margin-left: 0 !important;
+    }
+  }
+}
